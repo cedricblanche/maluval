@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Association Maluval — Vous n'êtes pas seuls</title>
+  <meta name="description" content="Association de patients et familles soutenant les recherches du Professeur Fourtillan sur la maladie de Parkinson. Le combat continue." />
+  <link rel="canonical" href="https://www.maluval.fr" />
+  <meta property="og:title" content="Association Maluval — Vous n'êtes pas seuls" />
+  <meta property="og:description" content="Des centaines de patients atteints de Parkinson témoignent. Le combat pour le libre arbitre thérapeutique continue." />
+  <meta property="og:url" content="https://www.maluval.fr" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --cream-dark: #ede7d8;
+      --charcoal: #1a1a1a;
+      --charcoal-light: #3a3a3a;
+      --gold: #b8922a;
+      --gold-light: #d4a93a;
+      --slate: #2c3e50;
+      --slate-mid: #4a5568;
+      --green: #2d6a4f;
+      --red-deep: #7b2d2d;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,26,26,0.95);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--charcoal);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(184,146,42,0.15) 0%, transparent 70%);
+    }
+    .hero-content { position: relative; max-width: 820px; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(184,146,42,0.4);
+      padding: 0.35rem 1rem;
+      border-radius: 2px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+    .hero-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 3rem;
+      border-left: 2px solid var(--gold);
+      padding-left: 1.25rem;
+      text-align: left;
+      max-width: 520px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hero-cta-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      border-radius: 3px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    p { color: var(--charcoal-light); margin-bottom: 1.25rem; }
+
+    /* ── CHIFFRES ── */
+    .stats {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+    .stats .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── CONTEXTE ── */
+    .contexte { background: var(--cream); }
+    .contexte-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 680px) { .contexte-grid { grid-template-columns: 1fr; } }
+    .contexte-card {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 2rem;
+      border-top: 3px solid var(--gold);
+    }
+    .contexte-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--charcoal);
+    }
+    .contexte-card p { font-size: 0.95rem; margin-bottom: 0; }
+
+    /* ── TEMOIGNAGES ── */
+    .temoignages { background: var(--cream-dark); }
+    .temoignages h2 { color: var(--charcoal); }
+    .temoignages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .temoignage-card {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 1.75rem;
+      position: relative;
+    }
+    .temoignage-card::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.2;
+      position: absolute;
+      top: -0.5rem; left: 1rem;
+      line-height: 1;
+    }
+    .temoignage-text {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--charcoal-light);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .temoignage-author {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── TIMELINE / INTERDICTION ── */
+    .interdiction { background: var(--slate); color: var(--white); }
+    .interdiction h2 { color: var(--white); }
+    .interdiction p { color: rgba(255,255,255,0.7); }
+    .timeline { margin-top: 3rem; position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: rgba(184,146,42,0.3);
+    }
+    .timeline-item {
+      padding-left: 2.5rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5px; top: 0.4rem;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .timeline-date {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .timeline-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      margin: 0;
+    }
+    .interdiction-quote {
+      background: rgba(255,255,255,0.06);
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem 2rem;
+      margin-top: 2.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .interdiction-quote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+    }
+    .interdiction-quote cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-style: normal;
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── BENEFICES ── */
+    .benefices { background: var(--cream); }
+    .benefice-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .benefice-item {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: var(--white);
+      border-radius: 4px;
+    }
+    .benefice-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .benefice-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--charcoal);
+    }
+    .benefice-item p { font-size: 0.85rem; margin: 0; }
+    .zero-badge {
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--green);
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ── REJOINDRE ── */
+    .rejoindre {
+      background: var(--cream-dark);
+      text-align: center;
+    }
+    .rejoindre h2 { margin-bottom: 1rem; }
+    .rejoindre p { max-width: 560px; margin: 0 auto 2rem; }
+    .contact-form {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .form-row { display: flex; gap: 1rem; }
+    .form-row input { flex: 1; }
+    input, textarea, select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 3px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      background: var(--white);
+      color: var(--charcoal);
+      transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    textarea { resize: vertical; min-height: 100px; }
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--slate-mid);
+      text-align: center;
+    }
+
+    /* ── PETITION ── */
+    .petition {
+      background: var(--charcoal);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .petition h2 { color: var(--white); margin-bottom: 1rem; }
+    .petition p { color: rgba(255,255,255,0.7); max-width: 580px; margin: 0 auto 2rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { color: var(--gold-light); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 60px; height: 2px;
+      background: var(--gold);
+      margin: 1.5rem 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      section { padding: 3.5rem 1.25rem; }
+      .form-row { flex-direction: column; }
+    }
+
+    /* ── SMOOTH REVEAL (CSS only) ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content { animation: fadeUp 0.8s ease both; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Maluval</a>
+  <ul class="nav-links">
+    <li><a href="#contexte">Le contexte</a></li>
+    <li><a href="#temoignages">Témoignages</a></li>
+    <li><a href="#combat">Le combat</a></li>
+    <li><a href="#rejoindre">Nous rejoindre</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow">Association Maluval</span>
+    <h1>Vous n'êtes pas seuls.<br><em>Le combat continue.</em></h1>
+    <p class="hero-sub">
+      Des centaines de patients atteints de Parkinson ont vu leur vie transformée
+      par les patchs du Professeur Fourtillan. En 2019, cet espoir leur a été interdit.
+      Nous sommes là pour que leur voix soit entendue.
+    </p>
+    <blockquote class="hero-quote">
+      « Parce que PARKINSON, il faut le vivre pour comprendre. »
+      <span style="display:block; margin-top:0.5rem; font-style:normal; font-size:0.8rem; opacity:0.6;">— Témoignage d'un patient</span>
+    </blockquote>
+    <div class="hero-cta-group">
+      <a href="#temoignages" class="btn btn-gold">Lire les témoignages</a>
+      <a href="#rejoindre" class="btn btn-outline">Nous soutenir</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div>
+      <div class="stat-number">400+</div>
+      <div class="stat-label">Patients mobilisés</div>
+    </div>
+    <div>
+      <div class="stat-number">2019</div>
+      <div class="stat-label">Interdiction de l'essai</div>
+    </div>
+    <div>
+      <div class="stat-number">0</div>
+      <div class="stat-label">Effet secondaire signalé</div>
+    </div>
+    <div>
+      <div class="stat-number">3</div>
+      <div class="stat-label">Axes d'amélioration rapportés</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXTE -->
+<section class="contexte" id="contexte">
+  <div class="container">
+    <span class="section-label">Qui sommes-nous</span>
+    <h2>L'association Maluval</h2>
+    <div class="divider"></div>
+    <p>
+      L'association Maluval regroupe des patients, proches et familles qui ont participé
+      à l'essai clinique mené par le <strong>Professeur Jean-Bernard Fourtillan</strong>,
+      pharmacologue et chercheur français, sur le traitement de la maladie de Parkinson
+      et des troubles du sommeil à l'aide de patchs à base de neurohormones.
+    </p>
+    <p>
+      Notre objectif n'est pas de défier la médecine, mais de porter la voix de ceux
+      qui ont vécu une amélioration réelle de leur qualité de vie — et à qui on a retiré
+      cet espoir du jour au lendemain, sans dialogue, sans explication suffisante.
+    </p>
+
+    <div class="contexte-grid">
+      <div class="contexte-card">
+        <h3>Le Professeur Fourtillan</h3>
+        <p>
+          Pharmacologue de formation, le Professeur Jean-Bernard Fourtillan a consacré ses
+          recherches aux neurohormones — dont la mélatonine et ses précurseurs — et à leur
+          rôle dans les maladies neurodégénératives. Ses travaux ont conduit au développement
+          de patchs cutanés destinés aux patients parkinsoniens.
+        </p>
+      </div>
+      <div class="contexte-card">
+        <h3>Les patchs et l'essai</h3>
+        <p>
+          Près de 400 patients ont participé volontairement à l'essai, en connaissance de
+          cause et avec consentement éclairé. Les sessions se tenaient à l'abbaye Sainte-Croix.
+          Chacun contribuait financièrement selon ses moyens — ceux sans ressources n'étaient
+          pas laissés de côté.
+        </p>
+      </div>
+      <div class="contexte-card">
+        <h3>Le 19 septembre 2019</h3>
+        <p>
+          Ce jour-là, les patients apprennent par les médias l'interdiction immédiate de
+          l'essai par l'ANSM (Agence nationale de sécurité du médicament). Ils doivent
+          arrêter leurs patchs sur-le-champ, sans transition, sans suivi. Un choc brutal.
+        </p>
+      </div>
+      <div class="contexte-card">
+        <h3>Pourquoi nous nous battons</h3>
+        <p>
+          Quand la médecine conventionnelle dit « vous êtes incurable » et que les traitements
+          existants ont de lourds effets secondaires, pourquoi interdire à des adultes consentants
+          d'essayer une solution qui leur apporte du mieux-être et n'a causé aucun effet indésirable ?
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BÉNÉFICES -->
+<section class="benefices">
+  <div class="container">
+    <span class="section-label">Ce que rapportent les patients</span>
+    <h2>Trois axes de transformation</h2>
+    <div class="divider"></div>
+    <p>
+      Les témoignages convergent vers trois améliorations majeures, rapportées dès les
+      premiers jours de traitement.
+    </p>
+    <div class="benefice-list">
+      <div class="benefice-item">
+        <div class="benefice-icon">🚶</div>
+        <h3>Le mouvement retrouvé</h3>
+        <p>Marche sans bâton, force retrouvée dans les mains, fin de la dystonie. Des gestes simples qui changent tout.</p>
+      </div>
+      <div class="benefice-item">
+        <div class="benefice-icon">🌙</div>
+        <h3>Le sommeil réparateur</h3>
+        <p>Nuits complètes, moins de réveils nocturnes, apnée atténuée, énergie retrouvée au quotidien.</p>
+      </div>
+      <div class="benefice-item">
+        <div class="benefice-icon"><span class="zero-badge">0</span></div>
+        <h3>Aucun effet secondaire</h3>
+        <p>Pas un seul patient n'a rapporté d'effet indésirable détectable — contrairement aux traitements conventionnels.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGES -->
+<section class="temoignages" id="temoignages">
+  <div class="container">
+    <span class="section-label">Ils témoignent</span>
+    <h2>Des voix que l'on ne peut ignorer</h2>
+    <div class="divider"></div>
+    <p>
+      Ce sont des patients, des maris, des petits-enfants. Des gens ordinaires qui ont
+      vécu quelque chose d'extraordinaire, et qui aujourd'hui demandent simplement le
+      droit de continuer à se soigner.
+    </p>
+
+    <div class="temoignages-grid">
+      <div class="temoignage-card">
+        <p class="temoignage-text">
+          Surtout je marche sans bâton à 75 % du temps. Je me suis même surprise hier
+          à me mettre à courir pour ne pas rater un appel téléphonique !
+        </p>
+        <div class="temoignage-author">— Patiente</div>
+      </div>
+
+      <div class="temoignage-card">
+        <p class="temoignage-text">
+          FINI les dyskinésies, les angoisses et crises de paniques, la marche plus souple
+          et des nuits de 7 à 8 heures.
+        </p>
+        <div class="temoignage-author">— Chantal</div>
+      </div>
+
+      <div class="temoignage-card">
+        <p class="temoignage-text">
+          Un sommeil plus réparateur, une énergie nouvelle, une plus grande facilité
+          à la marche et aux mouvements.
+        </p>
+        <div class="temoignage-author">— Patiente</div>
+      </div>
+
+      <div class="temoignage-card">
+        <p class="temoignage-text">
+          J'ai rencontré une Parkinsonienne qui n'avait plus besoin de son fauteuil roulant
+          depuis qu'elle portait ses patchs. En la voyant se déplacer, impossible de
+          deviner sa maladie.
+        </p>
+        <div class="temoignage-author">— Témoignage d'un proche</div>
+      </div>
+
+      <div class="temoignage-card">
+        <p class="temoignage-text">
+          Son accueil chaleureux, ses explications éclairantes et surtout son dévouement
+          sans faille pour les patients m'ont convaincue : il y avait là une piste
+          à suivre, un espoir de mieux-être.
+        </p>
+        <div class="temoignage-author">— Annick</div>
+      </div>
+
+      <div class="temoignage-card">
+        <p class="temoignage-text">
+          Papi se déplaçait toute la journée de façon autonome sans l'aide de personne…
+          et ça nous a fait très chaud au cœur de le revoir complètement autonome comme ça.
+        </p>
+        <div class="temoignage-author">— Doreen et Albin, petits-enfants de Patrick L.</div>
+      </div>
+
+      <div class="temoignage-card">
+        <p class="temoignage-text">
+          J'ai fait plusieurs séjours en hôpital neurologie de 1 mois pour équilibrer
+          mon traitement, SANS RÉSULTAT. Pourquoi nous imposer des médicaments chimiques
+          qui nous détruisent, et refuser une autre solution qui nous soulage ?
+        </p>
+        <div class="temoignage-author">— Chantal</div>
+      </div>
+
+      <div class="temoignage-card">
+        <p class="temoignage-text">
+          Les bénéfices de ces patchs ont été tout de suite visibles.
+        </p>
+        <div class="temoignage-author">— Patient, 60 ans</div>
+      </div>
+
+      <div class="temoignage-card">
+        <p class="temoignage-text">
+          Non, le Professeur Fourtillan n'est pas un charlatan. Non, nous ne sommes
+          pas 402 demeurés, ensorcelés par un gourou.
+        </p>
+        <div class="temoignage-author">— Témoignage collectif</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LE COMBAT -->
+<section class="interdiction" id="combat">
+  <div class="container">
+    <span class="section-label">Le combat</span>
+    <h2>L'espoir interdit — et la lutte qui continue</h2>
+    <div class="divider" style="background: rgba(184,146,42,0.5);"></div>
+    <p>
+      Voici comment des centaines de patients ont vécu la même histoire — celle d'un
+      espoir trouvé, puis confisqué.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">Le diagnostic</div>
+        <h3>« Vous êtes incurable. »</h3>
+        <p>Pour beaucoup, le parcours débute par un verdict sans appel de la neurologie conventionnelle,
+        suivi de traitements aux lourds effets secondaires : hallucinations, achats compulsifs,
+        addictions.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">La rencontre</div>
+        <h3>Un Professeur qui propose une lueur au fond du tunnel</h3>
+        <p>Ni charlot, ni hurluberlu — un scientifique sérieux qui accueille chaque patient
+        avec bienveillance, explique ses recherches et propose un essai volontaire et assumé,
+        sans paiement exigé pour ceux qui n'en ont pas les moyens.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Les résultats</div>
+        <h3>Une transformation spectaculaire</h3>
+        <p>Mouvement retrouvé, sommeil réparateur, disparition des symptômes les plus invalidants.
+        Des améliorations concrètes, rapides, et sans le moindre effet secondaire constaté.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">19 septembre 2019</div>
+        <h3>L'interdiction — apprise par les médias</h3>
+        <p>Sans préavis, sans transition médicale, les patients apprennent par la presse
+        l'interdiction immédiate de l'essai par l'ANSM. Ils doivent arrêter leurs patchs
+        sur-le-champ. Les médias parlent de charlatanisme. Les patients, eux, appellent ça
+        « un grand espoir anéanti ».</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Depuis 2019</div>
+        <h3>Le combat continue</h3>
+        <p>Des centaines de patients et familles se mobilisent. Ils réclament la liberté de
+        se soigner, la reprise des recherches, et que leur voix soit enfin entendue par les
+        autorités sanitaires et politiques.</p>
+      </div>
+    </div>
+
+    <blockquote class="interdiction-quote">
+      <p>
+        « Quand aucun traitement efficace n'existe pour une maladie que les neurologues
+        qualifient "d'incurable", pourquoi interdire à des malades sans aucune alternative
+        valable de tester une solution qui améliore leur état et qui n'a pas d'effets
+        secondaires ? »
+      </p>
+      <cite>— Témoignages de patients et familles, France, 2019</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- REJOINDRE -->
+<section class="rejoindre" id="rejoindre">
+  <div class="container">
+    <span class="section-label">Rejoindre le mouvement</span>
+    <h2>Vous n'êtes pas seuls.<br>Faites-le nous savoir.</h2>
+    <div class="divider" style="margin: 1.5rem auto;"></div>
+    <p>
+      Que vous soyez patient, proche, soignant ou simplement convaincu que chacun doit
+      avoir le droit de se soigner librement — rejoignez-nous. Partagez votre témoignage,
+      soutenez la cause.
+    </p>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <input type="text" name="prenom" placeholder="Prénom" required />
+        <input type="text" name="nom" placeholder="Nom" required />
+      </div>
+      <input type="email" name="email" placeholder="Adresse e-mail" required />
+      <select name="profil">
+        <option value="" disabled selected>Je suis…</option>
+        <option value="patient">Patient(e)</option>
+        <option value="proche">Proche d'un patient</option>
+        <option value="soignant">Professionnel de santé</option>
+        <option value="soutien">Soutien général</option>
+      </select>
+      <textarea name="message" placeholder="Votre témoignage ou message (facultatif)"></textarea>
+      <button type="submit" class="btn btn-gold" style="width:100%; font-size:1rem; padding:1rem;">
+        Rejoindre l'association
+      </button>
+      <p class="form-note">Vos données restent strictement confidentielles et ne seront jamais partagées.</p>
+    </form>
+  </div>
+</section>
+
+<!-- PETITION -->
+<section class="petition">
+  <div class="container">
+    <h2>Le libre arbitre des malades</h2>
+    <p>
+      « Au nom de quel droit universel nous empêche-t-on de nous soigner librement ?
+      Notre corps nous appartient et nous voulons être libres de trouver la meilleure thérapie. »
+      <br><br>
+      Partagez ce site autour de vous. Chaque voix compte.
+    </p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.5rem;">
+      <button onclick="partager()" class="btn btn-gold">Partager ce site</button>
+      <a href="mailto:?subject=Association Maluval — Parkinson, le combat continue&body=Je vous invite à découvrir le témoignage de patients parkinsoniens : " class="btn btn-outline">Envoyer par e-mail</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong style="color:rgba(255,255,255,0.7);">Association Maluval</strong>
+    — Pour la liberté thérapeutique et le droit à l'espoir
+  </p>
+  <p style="margin-top:0.5rem;">
+    Contact : <a href="mailto:contact@maluval.fr">contact@maluval.fr</a>
+  &nbsp;·&nbsp; <a href="https://www.maluval.fr">www.maluval.fr</a>
+  </p>
+  <p style="margin-top:1rem; opacity:0.4; font-size:0.72rem;">
+    Les témoignages publiés sur ce site sont ceux de patients et familles volontaires.
+    Ce site ne constitue pas un conseil médical.
+  </p>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = '✓ Merci — nous avons bien reçu votre message';
+    btn.style.background = '#2d6a4f';
+    btn.disabled = true;
+    // TODO : connecter à un service de formulaire (Formspree, Netlify Forms, etc.)
+  }
+
+  function partager() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Association Maluval — Vous n\'êtes pas seuls',
+        text: 'Des patients atteints de Parkinson témoignent. Le combat continue.',
+        url: window.location.href
+      });
+    } else {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('Lien copié dans le presse-papier !');
+      });
+    }
+  }
+
+  // Intersection Observer pour les animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.temoignage-card, .contexte-card, .benefice-item, .timeline-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
