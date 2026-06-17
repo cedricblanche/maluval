@@ -129,6 +129,16 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--gold-light); }
+    .nav-cagnotte {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--gold); color: var(--charcoal);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+      padding: 0.45rem 1rem; border-radius: 20px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .nav-cagnotte:hover { background: var(--gold-light); transform: scale(1.04); }
 
     /* ── HERO ── */
     .hero {
@@ -528,6 +538,10 @@
     <li><a href="https://www.youtube.com/@associationmaluval9625" target="_blank" rel="noopener" style="color:var(--gold);">▶ YouTube</a></li>
     <li><a href="https://www.facebook.com/groupemaluval/" target="_blank" rel="noopener" style="color:var(--gold);">Facebook</a></li>
   </ul>
+  <a href="https://www.leetchi.com/fr/c/aidez-lassociation-maluval-a-continuer-le-combat-pour-les-patients-parkinsonien-5148696"
+     target="_blank" rel="noopener" class="nav-cagnotte">
+    💛 Cagnotte
+  </a>
 </nav>
 
 <!-- HERO -->
