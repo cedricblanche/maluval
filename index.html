@@ -1000,11 +1000,28 @@
 <script>
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('button[type=submit]');
-    btn.textContent = '✓ Merci — nous avons bien reçu votre message';
+    const form = e.target;
+    const prenom = form.prenom.value.trim();
+    const nom = form.nom.value.trim();
+    const email = form.email.value.trim();
+    const profil = form.profil.value || 'Non précisé';
+    const message = form.message.value.trim() || '(pas de message)';
+
+    const subject = encodeURIComponent('Nouveau membre Maluval — ' + prenom + ' ' + nom);
+    const body = encodeURIComponent(
+      'Prénom : ' + prenom +
+      '\nNom : ' + nom +
+      '\nE-mail : ' + email +
+      '\nProfil : ' + profil +
+      '\n\nMessage :\n' + message
+    );
+
+    window.location.href = 'mailto:contact@maluval.fr?subject=' + subject + '&body=' + body;
+
+    const btn = form.querySelector('button[type=submit]');
+    btn.textContent = '✓ Ouverture de votre messagerie…';
     btn.style.background = '#2d6a4f';
     btn.disabled = true;
-    // TODO : connecter à un service de formulaire (Formspree, Netlify Forms, etc.)
   }
 
   function partager() {
