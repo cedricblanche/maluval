@@ -526,6 +526,18 @@
 </head>
 <body>
 
+<!-- BANDEAU CAGNOTTE STICKY -->
+<div id="cagnotte-banner" style="position:fixed; bottom:0; left:0; right:0; z-index:200; background:var(--gold); color:var(--charcoal); padding:0.75rem 1.25rem; display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; font-size:0.85rem; font-weight:600; box-shadow:0 -2px 10px rgba(0,0,0,0.15);">
+  <span>💛 Aidez-nous à relancer le bureau de l'association Maluval.</span>
+  <a href="https://www.leetchi.com/fr/c/aidez-lassociation-maluval-a-continuer-le-combat-pour-les-patients-parkinsonien-5148696"
+     target="_blank" rel="noopener"
+     style="background:var(--charcoal); color:var(--white); padding:0.4rem 1rem; border-radius:20px; text-decoration:none; font-size:0.8rem; white-space:nowrap;">
+    Faire un don
+  </a>
+  <button onclick="fermerBandeauCagnotte()" aria-label="Fermer"
+    style="background:none; border:none; color:var(--charcoal); font-size:1.1rem; cursor:pointer; padding:0 0.25rem; line-height:1;">✕</button>
+</div>
+
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;">
@@ -1102,6 +1114,20 @@
     btn.style.background = '#2d6a4f';
     btn.disabled = true;
   }
+
+  function fermerBandeauCagnotte() {
+    const banner = document.getElementById('cagnotte-banner');
+    if (banner) banner.style.display = 'none';
+    try { sessionStorage.setItem('cagnotteBannerClosed', '1'); } catch (e) {}
+  }
+  (function () {
+    try {
+      if (sessionStorage.getItem('cagnotteBannerClosed') === '1') {
+        const banner = document.getElementById('cagnotte-banner');
+        if (banner) banner.style.display = 'none';
+      }
+    } catch (e) {}
+  })();
 
   function partager() {
     if (navigator.share) {
