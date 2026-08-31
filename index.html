@@ -153,7 +153,7 @@
       background: var(--charcoal);
       display: flex; align-items: center; justify-content: center;
       text-align: center;
-      padding: 6rem 2rem 4rem;
+      padding: 9rem 2rem 4rem;
       position: relative;
       overflow: hidden;
     }
@@ -536,6 +536,20 @@
   </a>
   <button onclick="fermerBandeauCagnotte()" aria-label="Fermer"
     style="background:none; border:none; color:var(--charcoal); font-size:1.1rem; cursor:pointer; padding:0 0.25rem; line-height:1;">✕</button>
+</div>
+
+<!-- BANDEAU ASSEMBLÉE GÉNÉRALE -->
+<div id="ag-banner" style="position:fixed; top:60px; left:0; right:0; z-index:99; background:var(--slate); color:var(--white); padding:0.7rem 1.25rem; display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; font-size:0.85rem; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+  <span>
+    <strong style="color:var(--gold-light);">Assemblée Générale en ligne</strong>
+    — Nous venons de la lancer pour relancer l'association Maluval et lui donner les moyens de fonctionner efficacement dans les prochaines semaines.
+  </span>
+  <a href="#rejoindre"
+     style="background:var(--gold); color:var(--white); padding:0.4rem 1rem; border-radius:20px; text-decoration:none; font-size:0.8rem; font-weight:600; white-space:nowrap;">
+    Participer
+  </a>
+  <button onclick="fermerBandeauAG()" aria-label="Fermer l'annonce"
+    style="background:none; border:none; color:rgba(255,255,255,0.7); font-size:1.1rem; cursor:pointer; padding:0 0.25rem; line-height:1;">✕</button>
 </div>
 
 <!-- NAV -->
@@ -1114,6 +1128,20 @@
     btn.style.background = '#2d6a4f';
     btn.disabled = true;
   }
+
+  function fermerBandeauAG() {
+    const banner = document.getElementById('ag-banner');
+    if (banner) banner.style.display = 'none';
+    try { sessionStorage.setItem('agBannerClosed', '1'); } catch (e) {}
+  }
+  (function () {
+    try {
+      if (sessionStorage.getItem('agBannerClosed') === '1') {
+        const banner = document.getElementById('ag-banner');
+        if (banner) banner.style.display = 'none';
+      }
+    } catch (e) {}
+  })();
 
   function fermerBandeauCagnotte() {
     const banner = document.getElementById('cagnotte-banner');
