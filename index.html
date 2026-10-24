@@ -81,8 +81,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <!-- Brevo newsletter form styles -->
-  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -969,24 +967,19 @@
       soutenez la cause.
     </p>
 
-    <form class="contact-form" onsubmit="handleSubmit(event)">
+    <form class="contact-form" id="form-adhesion" onsubmit="handleSubmit(event)" novalidate>
       <div class="form-row">
-        <input type="text" name="prenom" placeholder="Prénom" required />
-        <input type="text" name="nom" placeholder="Nom" required />
+        <input type="text" name="prenom" placeholder="Prénom" required autocomplete="given-name" />
+        <input type="text" name="nom" placeholder="Nom" required autocomplete="family-name" />
       </div>
-      <input type="email" name="email" placeholder="Adresse e-mail" required />
-      <select name="profil">
-        <option value="" disabled selected>Je suis…</option>
-        <option value="patient">Patient(e)</option>
-        <option value="proche">Proche d'un patient</option>
-        <option value="soignant">Professionnel de santé</option>
-        <option value="soutien">Soutien général</option>
-      </select>
-      <textarea name="message" placeholder="Votre témoignage ou message (facultatif)"></textarea>
+      <input type="email" name="email" placeholder="Adresse e-mail" required autocomplete="email" />
+      <textarea name="message" placeholder="Votre message ou témoignage (facultatif)"></textarea>
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
       <button type="submit" class="btn btn-gold" style="width:100%; font-size:1rem; padding:1rem;">
         Rejoindre l'association
       </button>
-      <p class="form-note">Vos données restent strictement confidentielles et ne seront jamais partagées.</p>
+      <p class="form-status" role="status" aria-live="polite" style="margin-top:0.8rem; font-size:0.95rem; min-height:1.2em;"></p>
+      <p class="form-note">Vous recevrez par e-mail les informations pour devenir membre de l'association. Vos données restent confidentielles et ne sont jamais partagées.</p>
     </form>
   </div>
 </section>
@@ -1045,51 +1038,6 @@
   </div>
 </section>
 
-<!-- NEWSLETTER BREVO -->
-<section style="background: var(--charcoal); padding: 4rem 2rem; text-align: center;">
-  <div class="container" style="max-width: 600px;">
-    <span class="section-label" style="color: var(--gold-light);">Restez informés</span>
-    <h2 style="color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 1rem 0 0.5rem;">
-      Newsletter de l'association
-    </h2>
-    <div class="divider" style="margin: 1.2rem auto;"></div>
-    <p style="color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 0.95rem;">
-      Recevez nos actualités — démarches, témoignages, avancées du combat pour la liberté thérapeutique.
-    </p>
-
-    <!-- Begin Brevo Form -->
-    <div id="error-message" class="sib-form-message-panel" style="font-family:Helvetica,sans-serif;font-size:15px;text-align:left;color:#661d1d;background-color:#ffeded;border-color:#ff4949;border-radius:3px;max-width:540px;margin:0 auto 1rem;">
-      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-        <span class="sib-form-message-panel__inner-text">Nous n&#39;avons pas pu confirmer votre inscription.</span>
-      </div>
-    </div>
-    <div id="success-message" class="sib-form-message-panel" style="font-family:Helvetica,sans-serif;font-size:15px;text-align:left;color:#085229;background-color:#e7faf0;border-color:#13ce66;border-radius:3px;max-width:540px;margin:0 auto 1rem;">
-      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-        <span class="sib-form-message-panel__inner-text">✓ Votre inscription est confirmée. Merci !</span>
-      </div>
-    </div>
-
-    <form id="sib-form" method="POST"
-      action="https://420ae645.sibforms.com/serve/MUIFALG6ckyDZ7w8wVwve6f-FoYvkOMQPaYdHfd0wV5FGef_cEEm4lKcCIkMTMih_d9fE49RmCV_MzFyAHMRnOXN2MxRiDSvqUoOEkJoYAxNr5oF-YwfP6IID3r3x_KUlkPC53ZAUAzlfM-V3WrccHjdDHvRftmJZ_z1nV8kKZUJEnWMLqP6fsF3z6jZWIA0QAW9jxi8JTDe9dhsRw=="
-      data-type="subscription"
-      style="display:flex; gap:0.75rem; max-width:480px; margin:0 auto; flex-wrap:wrap;">
-      <input type="email" id="EMAIL" name="EMAIL" required autocomplete="off"
-        placeholder="Votre adresse e-mail"
-        style="flex:1; min-width:200px; padding:0.85rem 1rem; border-radius:4px; border:none; font-size:0.95rem; font-family:'Inter',sans-serif;" />
-      <input type="text" name="email_address_check" value="" style="display:none;" />
-      <input type="hidden" name="locale" value="fr" />
-      <button type="submit" class="btn btn-gold"
-        style="padding:0.85rem 1.5rem; font-size:0.95rem; border:none; cursor:pointer; white-space:nowrap;">
-        S'inscrire
-      </button>
-    </form>
-    <p style="margin-top:1rem; font-size:0.75rem; color:rgba(255,255,255,0.4);">
-      Vos données sont traitées par Brevo. Désinscription possible à tout moment.
-    </p>
-    <!-- End Brevo Form -->
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <p>
@@ -1109,30 +1057,65 @@
 </footer>
 
 <script>
-  function handleSubmit(e) {
+  // Formulaire de contact : Brevo (liste 6 « Contacts site — à convertir », PAS la liste Membres)
+  // -> Brevo envoie l'e-mail de proposition d'adhésion (modèle n°10) + notification à contact@maluval.fr
+  const BREVO_FORM_URL = 'https://420ae645.sibforms.com/serve/MUIFALG6ckyDZ7w8wVwve6f-FoYvkOMQPaYdHfd0wV5FGef_cEEm4lKcCIkMTMih_d9fE49RmCV_MzFyAHMRnOXN2MxRiDSvqUoOEkJoYAxNr5oF-YwfP6IID3r3x_KUlkPC53ZAUAzlfM-V3WrccHjdDHvRftmJZ_z1nV8kKZUJEnWMLqP6fsF3z6jZWIA0QAW9jxi8JTDe9dhsRw==';
+  const WEB3FORMS_KEY = 'COLLER_ICI_LA_CLE_WEB3FORMS';
+
+  async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
+    const status = form.querySelector('.form-status');
+    const btn = form.querySelector('button[type=submit]');
     const prenom = form.prenom.value.trim();
     const nom = form.nom.value.trim();
     const email = form.email.value.trim();
-    const profil = form.profil.value || 'Non précisé';
     const message = form.message.value.trim() || '(pas de message)';
 
-    // Ouverture de la messagerie pour envoyer un e-mail à l'association
-    const subject = encodeURIComponent('Nouveau membre Maluval — ' + prenom + ' ' + nom);
-    const body = encodeURIComponent(
-      'Prénom : ' + prenom +
-      '\nNom : ' + nom +
-      '\nE-mail : ' + email +
-      '\nProfil : ' + profil +
-      '\n\nMessage :\n' + message
-    );
-    window.location.href = 'mailto:contact@maluval.fr?subject=' + subject + '&body=' + body;
+    if (form.botcheck.checked) return;
+    if (!prenom || !nom || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      status.style.color = '#b03a2e';
+      status.textContent = 'Merci de renseigner votre prénom, votre nom et une adresse e-mail valide.';
+      return;
+    }
 
-    const btn = form.querySelector('button[type=submit]');
-    btn.textContent = '✓ Ouverture de votre messagerie…';
-    btn.style.background = '#2d6a4f';
     btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+    status.textContent = '';
+
+    // 1) Ajout dans Brevo (liste 6 « Contacts site — à convertir en adhérents »)
+    const brevo = new URLSearchParams({ EMAIL: email, PRENOM: prenom, NOM: nom, email_address_check: '', locale: 'fr' });
+    const pBrevo = fetch(BREVO_FORM_URL, { method: 'POST', mode: 'no-cors', body: brevo });
+
+    // 2) Notification a contact@maluval.fr
+    const mailActif = WEB3FORMS_KEY && WEB3FORMS_KEY.indexOf('COLLER_ICI') === -1;
+    const pMail = !mailActif ? Promise.resolve({ success: false }) : fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: 'Contact site Maluval — ' + prenom + ' ' + nom + ' (proposition d\'adhésion envoyée)',
+        from_name: 'Site maluval.fr',
+        replyto: email,
+        'Prénom': prenom, 'Nom': nom, 'E-mail': email, 'Message': message
+      })
+    }).then(r => r.json());
+
+    const [rBrevo, rMail] = await Promise.allSettled([pBrevo, pMail]);
+    const ok = rBrevo.status === 'fulfilled' || (rMail.status === 'fulfilled' && rMail.value && rMail.value.success);
+
+    if (ok) {
+      form.reset();
+      btn.textContent = '✓ Inscription envoyée';
+      btn.style.background = '#2d6a4f';
+      status.style.color = '#2d6a4f';
+      status.textContent = 'Merci ' + prenom + ' ! Votre message a bien été reçu. Vous allez recevoir un e-mail expliquant comment devenir membre de l\'association.';
+    } else {
+      btn.disabled = false;
+      btn.textContent = "Rejoindre l'association";
+      status.style.color = '#b03a2e';
+      status.innerHTML = 'Une erreur est survenue. Vous pouvez nous écrire directement à <a href="mailto:contact@maluval.fr">contact@maluval.fr</a>.';
+    }
   }
 
   function fermerBandeauAG() {
@@ -1194,18 +1177,6 @@
     observer.observe(el);
   });
 </script>
-
-<!-- Brevo newsletter form script -->
-<script>
-window.REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays';
-window.LOCALE = 'fr';
-window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Les informations que vous avez fournies ne sont pas valides. Veuillez vérifier le format du champ et réessayer.";
-window.REQUIRED_ERROR_MESSAGE = "Vous devez renseigner ce champ. ";
-window.GENERIC_INVALID_MESSAGE = "Les informations que vous avez fournies ne sont pas valides. Veuillez vérifier le format du champ et réessayer.";
-window.translation = { common: { selectedList: '{quantity} liste sélectionnée', selectedLists: '{quantity} listes sélectionnées' } };
-var AUTOHIDE = Boolean(0);
-</script>
-<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 
 </body>
 </html>
