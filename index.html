@@ -541,16 +541,14 @@
 <!-- BANDEAU ASSEMBLÉE GÉNÉRALE -->
 <div id="ag-banner" style="position:fixed; top:60px; left:0; right:0; z-index:99; background:var(--slate); color:var(--white); padding:0.7rem 1.25rem; display:flex; align-items:center; justify-content:center; gap:1rem; flex-wrap:wrap; font-size:0.85rem; box-shadow:0 2px 8px rgba(0,0,0,0.2);">
   <span>
-    <strong style="color:var(--gold-light);">Assemblée Générale :</strong>
-    merci aux 47 votants — nouveau bureau élu, cotisation de 15&nbsp;€/an adoptée, comptes 2025 approuvés.
-    &nbsp;·&nbsp;
-    <strong style="color:var(--gold-light);">Procès du Fonds Josefa :</strong>
-    le jugement a été rendu le 1<sup>er</sup> octobre 2026.
+    <strong style="color:var(--gold-light);">Action en justice SODEVAL :</strong>
+    soutenue par les enfants du Professeur Fourtillan, l'action lancée par Maître Fribourg réunit les plaignants victimes de SODEVAL.
+    <strong style="color:var(--gold-light);">Déjà 30 dépôts de plainte récupérés.</strong>
+    Vous êtes concerné(e) ? Faites-vous connaître.
   </span>
-  <a href="https://lemediaen442.fr/jean-bernard-fourtillan-condamne-a-quatre-ans-ferme-la-justice-francaise-ne-plaisante-pas-avec-les-chercheurs-hors-des-clous/"
-     target="_blank" rel="noopener"
+  <a href="mailto:Justice.patch.sodeval@gmail.com?subject=Plainte%20collective%20SODEVAL%20-%20je%20me%20manifeste"
      style="background:var(--gold); color:var(--white); padding:0.4rem 1rem; border-radius:20px; text-decoration:none; font-size:0.8rem; font-weight:600; white-space:nowrap;">
-    Lire l'article
+    Je me manifeste
   </a>
   <button onclick="fermerBandeauAG()" aria-label="Fermer l'annonce"
     style="background:none; border:none; color:rgba(255,255,255,0.7); font-size:1.1rem; cursor:pointer; padding:0 0.25rem; line-height:1;">✕</button>
@@ -1121,11 +1119,11 @@
   function fermerBandeauAG() {
     const banner = document.getElementById('ag-banner');
     if (banner) banner.style.display = 'none';
-    try { sessionStorage.setItem('agBannerClosed', '1'); } catch (e) {}
+    try { sessionStorage.setItem('agBannerClosed2', '1'); } catch (e) {}
   }
   (function () {
     try {
-      if (sessionStorage.getItem('agBannerClosed') === '1') {
+      if (sessionStorage.getItem('agBannerClosed2') === '1') {
         const banner = document.getElementById('ag-banner');
         if (banner) banner.style.display = 'none';
       }
